@@ -16,10 +16,11 @@ struct TagDetailView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
-            Text(peripheral.debugDescription)
-                .padding( )
+            Text(peripheral.identifier.description)
+                .padding()
+            Text(peripheral.state.rawValue.description)
+                .padding()
             Spacer()
-        }
-        .padding()
+       }
     }
 }

@@ -13,6 +13,7 @@ struct TagListView: View {
     var body: some View {
         VStack(alignment: .leading){
             Text(peripheral.name ?? "unnamed device")
+                .fontWeight(.semibold)
         }
     }
 }
