@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A15791F0292DC58E00B8E50F /* MESHConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15791EF292DC58E00B8E50F /* MESHConstant.swift */; };
+		A15791F2292DD1DC00B8E50F /* TagDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15791F1292DD1DC00B8E50F /* TagDetailView.swift */; };
+		A15791F4292DD32B00B8E50F /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15791F3292DD32B00B8E50F /* TagListView.swift */; };
+		A160B07A292BB882003EAC83 /* BLEViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160B079292BB882003EAC83 /* BLEViewModel.swift */; };
 		A169DE8D292B7AE000EFABCC /* BLEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169DE8C292B7AE000EFABCC /* BLEApp.swift */; };
 		A169DE8F292B7AE000EFABCC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169DE8E292B7AE000EFABCC /* ContentView.swift */; };
 		A169DE91292B7AE100EFABCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A169DE90292B7AE100EFABCC /* Assets.xcassets */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A15791EF292DC58E00B8E50F /* MESHConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MESHConstant.swift; sourceTree = "<group>"; };
+		A15791F1292DD1DC00B8E50F /* TagDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailView.swift; sourceTree = "<group>"; };
+		A15791F3292DD32B00B8E50F /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
+		A160B079292BB882003EAC83 /* BLEViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEViewModel.swift; sourceTree = "<group>"; };
 		A169DE89292B7AE000EFABCC /* BLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A169DE8C292B7AE000EFABCC /* BLEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEApp.swift; sourceTree = "<group>"; };
 		A169DE8E292B7AE000EFABCC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,7 +103,11 @@
 			isa = PBXGroup;
 			children = (
 				A169DE8C292B7AE000EFABCC /* BLEApp.swift */,
+				A15791EF292DC58E00B8E50F /* MESHConstant.swift */,
+				A160B079292BB882003EAC83 /* BLEViewModel.swift */,
 				A169DE8E292B7AE000EFABCC /* ContentView.swift */,
+				A15791F1292DD1DC00B8E50F /* TagDetailView.swift */,
+				A15791F3292DD32B00B8E50F /* TagListView.swift */,
 				A169DE90292B7AE100EFABCC /* Assets.xcassets */,
 				A169DE92292B7AE100EFABCC /* Preview Content */,
 			);
@@ -257,7 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15791F0292DC58E00B8E50F /* MESHConstant.swift in Sources */,
+				A15791F4292DD32B00B8E50F /* TagListView.swift in Sources */,
+				A160B07A292BB882003EAC83 /* BLEViewModel.swift in Sources */,
 				A169DE8F292B7AE000EFABCC /* ContentView.swift in Sources */,
+				A15791F2292DD1DC00B8E50F /* TagDetailView.swift in Sources */,
 				A169DE8D292B7AE000EFABCC /* BLEApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +436,7 @@
 				DEVELOPMENT_TEAM = YUH8WT596Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth Usage Description";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +466,7 @@
 				DEVELOPMENT_TEAM = YUH8WT596Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth Usage Description";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

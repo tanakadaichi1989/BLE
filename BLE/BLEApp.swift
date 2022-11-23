@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import CoreBluetooth
 
 @main
 struct BLEApp: App {
+    @StateObject var viewModel: BLEViewModel = BLEViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(viewModel)
         }
     }
 }

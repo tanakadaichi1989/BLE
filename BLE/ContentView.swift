@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
+import CoreBluetooth
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: BLEViewModel
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            List(viewModel.peripherals,id:\.self){ peripheral in
+                NavigationLink {
+                    TagDetailView(peripheral: peripheral)
+                } label: {
+                    TagListView(peripheral: peripheral)
+                }
+            }
+            .navigationTitle(Text("Peripherals"))
         }
-        .padding()
     }
 }
 
