@@ -12,15 +12,17 @@ struct ContentView: View {
     @EnvironmentObject var manager: DeviceManager
     
     var body: some View {
-        NavigationView {
-            List(manager.devices,id:\.self){ device in
-                NavigationLink {
-                    DeviceDetailView(device: device)
-                } label: {
-                    DeviceListView(device: device)
+        VStack {
+            NavigationView {
+                List(manager.devices,id:\.self){ device in
+                    NavigationLink {
+                        DeviceDetailView(device: device)
+                    } label: {
+                        DeviceListView(device: device)
+                    }
                 }
+                .navigationTitle(Text("Peripherals"))
             }
-            .navigationTitle(Text("Peripherals"))
         }
     }
 }

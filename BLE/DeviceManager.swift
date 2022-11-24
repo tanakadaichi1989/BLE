@@ -12,6 +12,7 @@ class DeviceManager: NSObject, ObservableObject {
     private let centralManager: CBCentralManager
     private let services:[CBUUID] = [CBUUID(string: MESH.UUID.description)]
     @Published var devices:[Device] = []
+    @Published var tapCount: Int = 0
     
     override init(){
         centralManager = CBCentralManager(delegate: nil, queue: nil)
@@ -35,6 +36,10 @@ class DeviceManager: NSObject, ObservableObject {
     func disconnect(peripheral: CBPeripheral){
         centralManager.cancelPeripheralConnection(peripheral)
     }
+    
+    func count(){
+        tapCount += 1
+    }
 }
 
 extension DeviceManager: CBCentralManagerDelegate {
@@ -51,16 +56,52 @@ extension DeviceManager: CBCentralManagerDelegate {
         } else {
             devices.append(device)
         }
-        centralManager.stopScan()
+        devices.map { device in self.centralManager.connect(device.peripheral, options: nil)}
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        devices.first { $0.peripheral == peripheral }
-            .map { $0.state = .connected }
+        guard let peripheral = devices.first?.peripheral else { return }
+        peripheral.delegate = self
+        peripheral.discoverServices(services)
+        print("centralManager did connect peripheral: \(peripheral.name?.description ?? "unnnamed")")
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        devices.first { $0.peripheral == peripheral }
-            .map { $0.state = .disconnected }
+        print("centralManager did disconnect peripheral")
+    }
+    
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        print("did update Value for executed")
+        print(characteristic.description)
+        count()
+    }
+    
+}
+
+extension DeviceManager: CBPeripheralDelegate {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        for service in peripheral.services! {
+            peripheral.discoverCharacteristics(nil, for: service)
+        }
+        print("did  DiscoverServices executed")
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        let byteArray: [UInt8] = [ 0x00, 0x02, 0x01, 0x03]
+        let data = Data(byteArray)
+        guard let characteristics = service.characteristics else { return }
+        
+        for characteristic in characteristics {
+            peripheral.setNotifyValue(true, for: characteristic)
+            peripheral.writeValue(data, for: characteristic, type: .withResponse)
+            peripheral.writeValue(data, for: characteristic, type: .withoutResponse)
+
+        }
+        print("did Discover Characteristics for executed")
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
+        print("did Update Notification State For executed characteristic: \(characteristic.description)")
     }
 }
