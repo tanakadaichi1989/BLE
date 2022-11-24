@@ -9,18 +9,20 @@ import SwiftUI
 import CoreBluetooth
 
 struct ContentView: View {
-    @EnvironmentObject var viewModel: BLEViewModel
+    @EnvironmentObject var manager: DeviceManager
     
     var body: some View {
-        NavigationView {
-            List(viewModel.peripherals,id:\.self){ peripheral in
-                NavigationLink {
-                    TagDetailView(peripheral: peripheral)
-                } label: {
-                    TagListView(peripheral: peripheral)
+        VStack {
+            NavigationView {
+                List(manager.devices,id:\.self){ device in
+                    NavigationLink {
+                        DeviceDetailView(device: device)
+                    } label: {
+                        DeviceListView(device: device)
+                    }
                 }
+                .navigationTitle(Text("Peripherals"))
             }
-            .navigationTitle(Text("Peripherals"))
         }
     }
 }

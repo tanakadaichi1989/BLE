@@ -10,7 +10,7 @@ import CoreBluetooth
 
 @main
 struct BLEApp: App {
-    @StateObject var viewModel: BLEViewModel = BLEViewModel()
+    @StateObject var viewModel: DeviceManager = DeviceManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
