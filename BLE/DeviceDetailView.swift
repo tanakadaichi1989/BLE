@@ -8,17 +8,15 @@
 import SwiftUI
 import CoreBluetooth
 
-struct TagDetailView: View {
-    var peripheral: CBPeripheral
+struct DeviceDetailView: View {
+    var device: Device
     var body: some View {
         VStack(alignment: .leading){
-            Text(peripheral.name ?? "unnamed device")
+            Text(device.peripheral.name ?? "unnamed device")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
-            Text(peripheral.identifier.description)
-                .padding()
-            Text(peripheral.state.rawValue.description)
+            Text(device.peripheral.identifier.description)
                 .padding()
             Spacer()
        }
