@@ -16,13 +16,13 @@ struct DeviceDetailView: View {
             Text(device.peripheral.name ?? "unnamed device")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .padding()
             Text(device.peripheral.identifier.description)
-                .padding()
-            Text("\(manager.tapCount.description) times tapped")
-                .padding()
-            connectButton
-            disconnectButton
+                .font(.subheadline)
+                .padding(.bottom,50)
+            HStack {
+                connectButton
+                disconnectButton
+            }
             Spacer()
        }
     }
@@ -31,19 +31,33 @@ struct DeviceDetailView: View {
         Button {
             manager.connect(perioheral: device.peripheral)
         } label: {
-            Text("connect")
+            Text("Connect")
+                .bold()
+                .padding()
+                .frame(width: 150,height: 150)
+                .foregroundColor(.primary)
+                .overlay(
+                    Circle()
+                        .stroke(Color.primary, lineWidth: 3)
+                )
         }
         .padding()
-        .buttonStyle(.borderedProminent)
     }
     
     private var disconnectButton: some View {
         Button {
             manager.disconnect(peripheral: device.peripheral)
         } label: {
-            Text("disconnect")
+            Text("Disconnect")
+                .bold()
+                .padding()
+                .frame(width: 150,height: 150)
+                .foregroundColor(.primary)
+                .overlay(
+                    Circle()
+                        .stroke(Color.primary, lineWidth: 3)
+                )
         }
         .padding()
-        .buttonStyle(.borderedProminent)
     }
 }
