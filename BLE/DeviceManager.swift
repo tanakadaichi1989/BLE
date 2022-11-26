@@ -12,6 +12,7 @@ class DeviceManager: NSObject, ObservableObject {
     private let centralManager: CBCentralManager
     private let services:[CBUUID] = [CBUUID(string: MESH.UUID.description)]
     @Published var devices:[Device] = []
+    @Published var recievedData:[Int] = []
     
     override init(){
         centralManager = CBCentralManager(delegate: nil, queue: nil)
@@ -34,6 +35,12 @@ class DeviceManager: NSObject, ObservableObject {
     
     func disconnect(peripheral: CBPeripheral){
         centralManager.cancelPeripheralConnection(peripheral)
+    }
+    
+    func analyze(data: Data) -> [Int] {
+        var result:[Int] = []
+        data.map { i in result.append(Int(i)) }
+        return result
     }
 }
 
@@ -69,6 +76,8 @@ extension DeviceManager: CBCentralManagerDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         print("did update Value for executed")
         print(characteristic.description)
+        guard let data = characteristic.value else { return }
+        recievedData = analyze(data: data)
     }
     
 }
@@ -90,7 +99,6 @@ extension DeviceManager: CBPeripheralDelegate {
             peripheral.setNotifyValue(true, for: characteristic)
             peripheral.writeValue(data, for: characteristic, type: .withResponse)
             peripheral.writeValue(data, for: characteristic, type: .withoutResponse)
-
         }
         print("did Discover Characteristics for executed")
     }

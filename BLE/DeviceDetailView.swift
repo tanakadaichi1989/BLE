@@ -25,6 +25,8 @@ struct DeviceDetailView: View {
                 DeviceButtonView(device: device, operation: .disconect)
                     .padding()
             }
+            RecievedDataView(data: manager.recievedData)
+                .padding()
             Spacer()
        }
     }
