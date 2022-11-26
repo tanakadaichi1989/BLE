@@ -12,6 +12,7 @@
 		A15791F6292F8E3100B8E50F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15791F5292F8E3100B8E50F /* Device.swift */; };
 		A15791F8292F993900B8E50F /* MESHConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15791F7292F993900B8E50F /* MESHConstant.swift */; };
 		A160B07A292BB882003EAC83 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160B079292BB882003EAC83 /* DeviceManager.swift */; };
+		A162BADF293257180069B653 /* DeviceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162BADE293257180069B653 /* DeviceButtonView.swift */; };
 		A169DE8D292B7AE000EFABCC /* BLEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169DE8C292B7AE000EFABCC /* BLEApp.swift */; };
 		A169DE8F292B7AE000EFABCC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169DE8E292B7AE000EFABCC /* ContentView.swift */; };
 		A169DE91292B7AE100EFABCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A169DE90292B7AE100EFABCC /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		A15791F5292F8E3100B8E50F /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		A15791F7292F993900B8E50F /* MESHConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MESHConstant.swift; sourceTree = "<group>"; };
 		A160B079292BB882003EAC83 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		A162BADE293257180069B653 /* DeviceButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceButtonView.swift; sourceTree = "<group>"; };
 		A169DE89292B7AE000EFABCC /* BLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A169DE8C292B7AE000EFABCC /* BLEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEApp.swift; sourceTree = "<group>"; };
 		A169DE8E292B7AE000EFABCC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				A15791F7292F993900B8E50F /* MESHConstant.swift */,
 				A169DE8E292B7AE000EFABCC /* ContentView.swift */,
 				A15791F1292DD1DC00B8E50F /* DeviceDetailView.swift */,
+				A162BADE293257180069B653 /* DeviceButtonView.swift */,
 				A15791F3292DD32B00B8E50F /* DeviceListView.swift */,
 				A169DE90292B7AE100EFABCC /* Assets.xcassets */,
 				A169DE92292B7AE100EFABCC /* Preview Content */,
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A162BADF293257180069B653 /* DeviceButtonView.swift in Sources */,
 				A15791F4292DD32B00B8E50F /* DeviceListView.swift in Sources */,
 				A160B07A292BB882003EAC83 /* DeviceManager.swift in Sources */,
 				A169DE8F292B7AE000EFABCC /* ContentView.swift in Sources */,

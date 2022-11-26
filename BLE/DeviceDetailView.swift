@@ -20,44 +20,12 @@ struct DeviceDetailView: View {
                 .font(.subheadline)
                 .padding(.bottom,50)
             HStack {
-                connectButton
-                disconnectButton
+                DeviceButtonView(device: device, operation: .connect)
+                    .padding()
+                DeviceButtonView(device: device, operation: .disconect)
+                    .padding()
             }
             Spacer()
        }
-    }
-    
-    private var connectButton: some View {
-        Button {
-            manager.connect(perioheral: device.peripheral)
-        } label: {
-            Text("Connect")
-                .bold()
-                .padding()
-                .frame(width: 150,height: 150)
-                .foregroundColor(.primary)
-                .overlay(
-                    Circle()
-                        .stroke(Color.primary, lineWidth: 3)
-                )
-        }
-        .padding()
-    }
-    
-    private var disconnectButton: some View {
-        Button {
-            manager.disconnect(peripheral: device.peripheral)
-        } label: {
-            Text("Disconnect")
-                .bold()
-                .padding()
-                .frame(width: 150,height: 150)
-                .foregroundColor(.primary)
-                .overlay(
-                    Circle()
-                        .stroke(Color.primary, lineWidth: 3)
-                )
-        }
-        .padding()
     }
 }
