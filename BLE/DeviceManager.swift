@@ -12,7 +12,6 @@ class DeviceManager: NSObject, ObservableObject {
     private let centralManager: CBCentralManager
     private let services:[CBUUID] = [CBUUID(string: MESH.UUID.description)]
     @Published var devices:[Device] = []
-    @Published var tapCount: Int = 0
     
     override init(){
         centralManager = CBCentralManager(delegate: nil, queue: nil)
@@ -35,10 +34,6 @@ class DeviceManager: NSObject, ObservableObject {
     
     func disconnect(peripheral: CBPeripheral){
         centralManager.cancelPeripheralConnection(peripheral)
-    }
-    
-    func count(){
-        tapCount += 1
     }
 }
 
@@ -74,7 +69,6 @@ extension DeviceManager: CBCentralManagerDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         print("did update Value for executed")
         print(characteristic.description)
-        count()
     }
     
 }
