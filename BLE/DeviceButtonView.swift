@@ -15,7 +15,7 @@ struct DeviceButtonView: View {
     
     var body: some View {
         Button {
-            toggle(operation)
+            toggleOperation(operation)
         } label: {
             Text(operation.description)
                 .bold()
@@ -37,7 +37,7 @@ struct DeviceButtonView: View {
         }
     }
     
-    private func toggle(_ operation: Operation) {
+    private func toggleOperation(_ operation: Operation) {
         switch operation {
         case .connect: manager.connect(perioheral: device.peripheral)
         case .disconect: manager.disconnect(peripheral: device.peripheral)
